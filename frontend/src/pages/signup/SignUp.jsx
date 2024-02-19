@@ -24,9 +24,9 @@ const SignUp = () => {
 	};
 	return (
 		<div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
-			<div className='w-full p-5 rounded-lg shadow-md bg-sky-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10'>
-				<h1 className='text-3xl font-semibold text-center text-gray-300'>
-					Sign Up <span className='text-amber-600'> ChatApp</span>
+			<div className='w-full p-5 rounded-lg shadow-md bg-blue-950 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-15'>
+				<h1 className='text-3xl font-semibold text-center text-gray-100'>
+					Sign Up <span className='text-amber-400'> ChatApp</span>
 				</h1>
 
 				<form onSubmit={handleSubmit}>
@@ -83,12 +83,12 @@ const SignUp = () => {
 					</div>
 
 					<GenderCheckbox onCheckboxChange={handleCheckboxChange} selectedGender={inputs.gender} />
-					<Link to={"/login"} className='text-sm hover:underline hover:text-blue-600 mt-2 inline-block' href='#'>
+					<Link to={"/login"} className='text-sm hover:underline hover:text-cyan-400 mt-2 inline-block' href='#'>
 						Already have an account?
 					</Link>
 
 					<div>
-						<button className='btn btn-block btn-sm mt-2 border border-slate-700' disabled={loading}>
+						<button className='btn btn-block btn-sm mt-2 border border-slate-500' disabled={loading}>
 							{loading ? <span className='loading loading-spinner'></span> : "Sign Up"}
 						</button>
 					</div>

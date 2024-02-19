@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BsSend } from "react-icons/bs";
+import { BsSendCheckFill } from "react-icons/bs";
 import useSendMessage from "../../hooks/useSendMessage";
 
 const MessageInput = () => {
@@ -18,13 +18,13 @@ const MessageInput = () => {
 			<div className='w-full relative'>
 				<input
 					type='text'
-					className='border text-sm rounded-lg block w-full p-2.5  bg-gray-700 border-gray-600 text-white'
-					placeholder='Send a message'
+					className='border text-sm rounded-lg block w-full p-2.5  bg-gray-800 border-green-200 text-white'
+					placeholder='Type a message...'
 					value={message}
 					onChange={(e) => setMessage(e.target.value)}
 				/>
 				<button type='submit' className='absolute inset-y-0 end-0 flex items-center pe-3'>
-					{loading ? <div className='loading loading-spinner'></div> : <BsSend />}
+					{loading ? <div className='loading loading-spinner'></div> : <BsSendCheckFill />}
 				</button>
 			</div>
 		</form>
