@@ -3,11 +3,12 @@ import useGetMessages from "../../hooks/useGetMessages";
 import MessageSkeleton from "../skeletons/MessageSkeleton";
 import Message from "./Message";
 import useListenMessages from "../../hooks/useListenMessages";
-
+import useConversation from "../../zustand/useConversation";
 const Messages = () => {
 	const { messages, loading } = useGetMessages();
 	useListenMessages();
 	const lastMessageRef = useRef();
+	const { selectedConversation } = useConversation();
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -20,13 +21,13 @@ const Messages = () => {
 			{!loading &&
         messages.length > 0 &&
         messages.map((message) => {
-          if (message.receiverId === selectedConversation._id || message.senderId === selectedConversation._id) { //Add this check to only render message if it belongs to current conversation
+          if (message.receiverId === selectedConversation._id || message.senderId === selectedConversation._id) {
             return (
               <div key={message._id} ref={lastMessageRef}>
                 <Message message={message} />
               </div>
             );
-          }
+          }
 })}
 
 			{loading && [...Array(3)].map((_, idx) => <MessageSkeleton key={idx} />)}
@@ -37,26 +38,3 @@ const Messages = () => {
 	);
 };
 export default Messages;
-
-// STARTER CODE SNIPPET
-// import Message from "./Message";
-
-// const Messages = () => {
-// 	return (
-// 		<div className='px-4 flex-1 overflow-auto'>
-// 			<Message />
-// 			<Message />
-// 			<Message />
-// 			<Message />
-// 			<Message />
-// 			<Message />
-// 			<Message />
-// 			<Message />
-// 			<Message />
-// 			<Message />
-// 			<Message />
-// 			<Message />
-// 		</div>
-// 	);
-// };
-// export default Messages;
