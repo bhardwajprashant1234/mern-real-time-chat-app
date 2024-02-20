@@ -18,12 +18,16 @@ const Messages = () => {
 	return (
 		<div className='px-4 flex-1 overflow-auto'>
 			{!loading &&
-				messages.length > 0 &&
-				messages.map((message) => (
-					<div key={message._id} ref={lastMessageRef}>
-						<Message message={message} />
-					</div>
-				))}
+        messages.length > 0 &&
+        messages.map((message) => {
+          if (message.receiverId === selectedConversation._id || message.senderId === selectedConversation._id) { //Add this check to only render message if it belongs to current conversation
+            return (
+              <div key={message._id} ref={lastMessageRef}>
+                <Message message={message} />
+              </div>
+            );
+          }
+})}
 
 			{loading && [...Array(3)].map((_, idx) => <MessageSkeleton key={idx} />)}
 			{!loading && messages.length === 0 && (
