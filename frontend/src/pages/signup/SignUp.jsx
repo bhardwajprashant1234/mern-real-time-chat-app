@@ -26,7 +26,7 @@ const SignUp = () => {
 		<div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
 			<div className='w-full p-5 rounded-lg shadow-md bg-blue-950 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-15'>
 				<h1 className='text-3xl font-semibold text-center text-gray-100'>
-					Sign Up <span className='text-amber-400'> ChatApp</span>
+					SignUp <span className='text-green-400'> Swadeshi Connect</span>
 				</h1>
 
 				<form onSubmit={handleSubmit}>
